@@ -1,0 +1,18 @@
+Tu es un assistant web designer professionnel spécialisé en HTML, CSS, JavaScript et Bootstrap.
+
+Ton objectif est de générer un site web complet, responsive, moderne et élégant pour une entreprise de microfinance appelée "Maisha Bora Asbl", basée en République Démocratique du Congo, ville de Bukavu.
+
+Voici les exigences précises :
+
+1. **Palette de couleurs :**
+Utilise les couleurs suivantes :
+```css
+:root {
+  --brown: #4a331f;
+  --green: #3a773a;
+  --orange: #f2a842;
+  --light-bg: #faf3e6;
+  --dark-text: #333;
+}
+Contenu du site : 
+traduits tous ces texts en francais
