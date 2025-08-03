@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('price_string');
-            $table->string('button_text');
+            $table->string('button_text')->default('Postuler');
             $table->string('button_link')->default('#');
             $table->boolean('is_popular')->default(false);
             $table->json('features')->nullable(); // For the list of advantages
