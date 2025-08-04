@@ -3,23 +3,20 @@
   <div class="app-brand demo">
     <a href="{{ url('/') }}" class="app-brand-link"><x-app-logo /></a>
   </div>
-
   <div class="menu-inner-shadow"></div>
-
   <ul class="menu-inner py-1">
-    <!-- Dashboards -->
+    <!-- Tableau de bord -->
     <li class="menu-item {{ request()->is('dashboard') ? 'active' : '' }}">
-      <a class="menu-link" href="{{ route('dashboard') }}" wire:navigate>{{ __('Dashboard') }}</a>
+      <a class="menu-link" href="{{ route('dashboard') }}" wire:navigate>{{ __('Tableau de bord') }}</a>
     </li>
-
-    <!-- Page Management -->
+    <!-- Gestion des Pages -->
     <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Gestion des Pages</span>
     </li>
     <li class="menu-item {{ request()->is('admin/features*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.features') }}" wire:navigate>
             <i class="menu-icon tf-icons bx bx-star"></i>
-            <div class="text-truncate">{{ __('Features') }}</div>
+            <div class="text-truncate">{{ __('Fonctionnalités') }}</div>
         </a>
     </li>
     <li class="menu-item {{ request()->is('admin/services*') ? 'active' : '' }}">
@@ -31,13 +28,13 @@
     <li class="menu-item {{ request()->is('admin/about*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.about') }}" wire:navigate>
             <i class="menu-icon tf-icons bx bx-info-circle"></i>
-            <div class="text-truncate">{{ __('About') }}</div>
+            <div class="text-truncate">{{ __('À propos') }}</div>
         </a>
     </li>
     <li class="menu-item {{ request()->is('admin/testimonials*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.testimonials') }}" wire:navigate>
             <i class="menu-icon tf-icons bx bxs-comment-detail"></i>
-            <div class="text-truncate">{{ __('Testimonials') }}</div>
+            <div class="text-truncate">{{ __('Témoignages') }}</div>
         </a>
     </li>
     <li class="menu-item {{ request()->is('admin/faq*') ? 'active' : '' }}">
@@ -55,47 +52,45 @@
     <li class="menu-item {{ request()->is('admin/how-it-works*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.how-it-works') }}" wire:navigate>
             <i class="menu-icon tf-icons bx bx-sitemap"></i>
-            <div class="text-truncate">{{ __('How It Works') }}</div>
+            <div class="text-truncate">{{ __('Comment ça marche') }}</div>
         </a>
     </li>
     <li class="menu-item {{ request()->is('admin/hero*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.hero') }}" wire:navigate>
             <i class="menu-icon tf-icons bx bxs-zap"></i>
-            <div class="text-truncate">{{ __('Hero Section') }}</div>
+            <div class="text-truncate">{{ __('Section principale') }}</div>
         </a>
     </li>
     <li class="menu-item {{ request()->is('admin/pricing*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.pricing') }}" wire:navigate>
             <i class="menu-icon tf-icons bx bxs-dollar-circle"></i>
-            <div class="text-truncate">{{ __('Pricing') }}</div>
+            <div class="text-truncate">{{ __('Tarifs') }}</div>
         </a>
     </li>
     <li class="menu-item {{ request()->is('admin/stats*') ? 'active' : '' }}">
         <a class="menu-link" href="{{ route('admin.stats') }}" wire:navigate>
             <i class="menu-icon tf-icons bx bx-line-chart"></i>
-            <div class="text-truncate">{{ __('Stats') }}</div>
+            <div class="text-truncate">{{ __('Statistiques') }}</div>
         </a>
     </li>
-
-    <!-- Settings -->
+    <!-- Paramètres -->
     <li class="menu-item {{ request()->is('settings/*') ? 'active open' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-cog"></i>
-        <div class="text-truncate">{{ __('Settings') }}</div>
+        <div class="text-truncate">{{ __('Paramètres') }}</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item {{ request()->routeIs('settings.profile') ? 'active' : '' }}">
-          <a class="menu-link" href="{{ route('settings.profile') }}" wire:navigate>{{ __('Profile') }}</a>
+          <a class="menu-link" href="{{ route('settings.profile') }}" wire:navigate>{{ __('Profil') }}</a>
         </li>
         <li class="menu-item {{ request()->routeIs('settings.password') ? 'active' : '' }}">
-          <a class="menu-link" href="{{ route('settings.password') }}" wire:navigate>{{ __('Password') }}</a>
+          <a class="menu-link" href="{{ route('settings.password') }}" wire:navigate>{{ __('Mot de passe') }}</a>
         </li>
       </ul>
     </li>
   </ul>
 </aside>
 <!-- / Menu -->
-
 <script>
   // Toggle the 'open' class when the menu-toggle is clicked
   document.querySelectorAll('.menu-toggle').forEach(function(menuToggle) {

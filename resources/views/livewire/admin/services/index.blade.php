@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">{{ __('Services') }}</h5>
-            <button wire:click="create()" class="btn btn-primary">{{ __('Create New Service') }}</button>
+            <button wire:click="create()" class="btn btn-primary">{{ __('Créer un nouveau service') }}</button>
         </div>
 
         <div class="card-body">
@@ -20,11 +20,11 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{{ __('Icon') }}</th>
-                            <th>{{ __('Title') }}</th>
+                            <th>{{ __('Icône') }}</th>
+                            <th>{{ __('Titre') }}</th>
                             <th>{{ __('Description') }}</th>
-                            <th>{{ __('Link') }}</th>
-                            <th>{{ __('Order') }}</th>
+                            <th>{{ __('Lien') }}</th>
+                            <th>{{ __('Ordre') }}</th>
                             <th>{{ __('Actions') }}</th>
                         </tr>
                     </thead>
@@ -34,11 +34,11 @@
                                 <td><i class="{{ $service->icon }} fs-4"></i></td>
                                 <td>{{ $service->title }}</td>
                                 <td>{{ Str::limit($service->description, 50) }}</td>
-                                <td><a href="{{ $service->link }}" target="_blank">{{ __('Link') }}</a></td>
+                                <td><a href="{{ $service->link }}" target="_blank">{{ __('Lien') }}</a></td>
                                 <td>{{ $service->display_order }}</td>
                                 <td>
-                                    <button wire:click="edit({{ $service->id }})" class="btn btn-sm btn-primary">{{ __('Edit') }}</button>
-                                    <button wire:click="delete({{ $service->id }})" class="btn btn-sm btn-danger">{{ __('Delete') }}</button>
+                                    <button wire:click="edit({{ $service->id }})" class="btn btn-sm btn-primary">{{ __('Modifier') }}</button>
+                                    <button wire:click="delete({{ $service->id }})" class="btn btn-sm btn-danger">{{ __('Supprimer') }}</button>
                                 </td>
                             </tr>
                         @endforeach

@@ -1,10 +1,10 @@
 <div>
-    <x-slot name="title">{{ __('Pricing Plans') }}</x-slot>
+    <x-slot name="title">{{ __('Plans Tarifaires') }}</x-slot>
 
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">{{ __('Manage Pricing Plans') }}</h5>
-            <button wire:click="create" class="btn btn-primary">{{ __('Add New Plan') }}</button>
+            <h5 class="mb-0">{{ __('Gérer les Plans Tarifaires') }}</h5>
+            <button wire:click="create" class="btn btn-primary">{{ __('Ajouter un nouveau plan') }}</button>
         </div>
 
         <div class="card-body">
@@ -20,11 +20,11 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{{ __('Order') }}</th>
-                            <th>{{ __('Name') }}</th>
-                            <th>{{ __('Price') }}</th>
-                            <th>{{ __('Popular') }}</th>
-                            <th>{{ __('Active') }}</th>
+                            <th>{{ __('Ordre') }}</th>
+                            <th>{{ __('Nom') }}</th>
+                            <th>{{ __('Prix') }}</th>
+                            <th>{{ __('Populaire') }}</th>
+                            <th>{{ __('Actif') }}</th>
                             <th>{{ __('Actions') }}</th>
                         </tr>
                     </thead>
@@ -36,26 +36,26 @@
                                 <td>{{ $plan->price_string }}</td>
                                 <td>
                                     @if($plan->is_popular)
-                                        <span class="badge bg-label-primary me-1">{{ __('Yes') }}</span>
+                                        <span class="badge bg-label-primary me-1">{{ __('Oui') }}</span>
                                     @else
-                                        <span class="badge bg-label-secondary me-1">{{ __('No') }}</span>
+                                        <span class="badge bg-label-secondary me-1">{{ __('Non') }}</span>
                                     @endif
                                 </td>
                                 <td>
                                     @if($plan->is_active)
-                                        <span class="badge bg-label-success me-1">{{ __('Active') }}</span>
+                                        <span class="badge bg-label-success me-1">{{ __('Actif') }}</span>
                                     @else
-                                        <span class="badge bg-label-danger me-1">{{ __('Inactive') }}</span>
+                                        <span class="badge bg-label-danger me-1">{{ __('Inactif') }}</span>
                                     @endif
                                 </td>
                                 <td>
-                                    <button wire:click="edit({{ $plan->id }})" class="btn btn-sm btn-primary">{{ __('Edit') }}</button>
-                                    <button wire:click="delete({{ $plan->id }})" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">{{ __('Delete') }}</button>
+                                    <button wire:click="edit({{ $plan->id }})" class="btn btn-sm btn-primary">{{ __('Modifier') }}</button>
+                                    <button wire:click="delete({{ $plan->id }})" onclick="return confirm('Êtes-vous sûr?')" class="btn btn-sm btn-danger">{{ __('Supprimer') }}</button>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center">{{ __('No pricing plans found.') }}</td>
+                                <td colspan="6" class="text-center">{{ __('Aucun plan tarifaire trouvé.') }}</td>
                             </tr>
                         @endforelse
                     </tbody>

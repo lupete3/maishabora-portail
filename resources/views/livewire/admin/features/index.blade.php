@@ -1,10 +1,10 @@
 <div>
-    <x-slot name="title">{{ __('Features') }}</x-slot>
+    <x-slot name="title">{{ __('Caractéristiques') }}</x-slot>
 
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">{{ __('Features') }}</h5>
-            <button wire:click="create()" class="btn btn-primary">{{ __('Create New Feature') }}</button>
+            <h5 class="mb-0">{{ __('Caractéristiques') }}</h5>
+            <button wire:click="create()" class="btn btn-primary">{{ __('Créer une nouvelle caractéristique') }}</button>
         </div>
 
         <div class="card-body">
@@ -20,10 +20,10 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{{ __('Icon') }}</th>
-                            <th>{{ __('Title') }}</th>
+                            <th>{{ __('Icône') }}</th>
+                            <th>{{ __('Titre') }}</th>
                             <th>{{ __('Description') }}</th>
-                            <th>{{ __('Order') }}</th>
+                            <th>{{ __('Ordre') }}</th>
                             <th>{{ __('Actions') }}</th>
                         </tr>
                     </thead>
@@ -35,8 +35,8 @@
                                 <td>{{ Str::limit($feature->description, 50) }}</td>
                                 <td>{{ $feature->display_order }}</td>
                                 <td>
-                                    <button wire:click="edit({{ $feature->id }})" class="btn btn-sm btn-primary">{{ __('Edit') }}</button>
-                                    <button wire:click="delete({{ $feature->id }})" class="btn btn-sm btn-danger">{{ __('Delete') }}</button>
+                                    <button wire:click="edit({{ $feature->id }})" class="btn btn-sm btn-primary">{{ __('Modifier') }}</button>
+                                    <button wire:click="delete({{ $feature->id }})" class="btn btn-sm btn-danger">{{ __('Supprimer') }}</button>
                                 </td>
                             </tr>
                         @endforeach

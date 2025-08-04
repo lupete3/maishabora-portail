@@ -2,18 +2,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{ $step_id ? 'Edit Step' : 'Create Step' }}</h5>
-                <button type="button" class="btn-close" wire:click="closeModal" aria-label="Close"></button>
+                <h5 class="modal-title">{{ $step_id ? 'Modifier l\'étape' : 'Créer une étape' }}</h5>
+                <button type="button" class="btn-close" wire:click="closeModal" aria-label="Fermer"></button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="step_number" class="form-label">Step Number</label>
+                        <label for="step_number" class="form-label">Numéro d'étape</label>
                         <input type="number" class="form-control" id="step_number" wire:model="step_number">
                         @error('step_number') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
+                        <label for="title" class="form-label">Titre</label>
                         <input type="text" class="form-control" id="title" wire:model="title">
                         @error('title') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
@@ -25,8 +25,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" wire:click="closeModal">Cancel</button>
-                <button type="button" class="btn btn-primary" wire:click.prevent="store()">Save</button>
+                <button type="button" class="btn btn-secondary" wire:click="closeModal">Annuler</button>
+                <button type="button" class="btn btn-primary" wire:click.prevent="store()">Enregistrer</button>
             </div>
         </div>
     </div>

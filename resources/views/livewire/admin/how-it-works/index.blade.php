@@ -1,10 +1,10 @@
 <div>
-    <x-slot name="title">{{ __('How It Works Steps') }}</x-slot>
+    <x-slot name="title">{{ __('Étapes de Fonctionnement') }}</x-slot>
 
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">{{ __('How It Works Steps') }}</h5>
-            <button wire:click="create()" class="btn btn-primary">{{ __('Create New Step') }}</button>
+            <h5 class="mb-0">{{ __('Étapes de Fonctionnement') }}</h5>
+            <button wire:click="create()" class="btn btn-primary">{{ __('Créer une nouvelle étape') }}</button>
         </div>
 
         <div class="card-body">
@@ -20,8 +20,8 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>{{ __('Step') }}</th>
-                            <th>{{ __('Title') }}</th>
+                            <th>{{ __('Étape') }}</th>
+                            <th>{{ __('Titre') }}</th>
                             <th>{{ __('Description') }}</th>
                             <th>{{ __('Actions') }}</th>
                         </tr>
@@ -33,8 +33,8 @@
                                 <td>{{ $step->title }}</td>
                                 <td>{{ Str::limit($step->description, 70) }}</td>
                                 <td>
-                                    <button wire:click="edit({{ $step->id }})" class="btn btn-sm btn-primary">{{ __('Edit') }}</button>
-                                    <button wire:click="delete({{ $step->id }})" class="btn btn-sm btn-danger">{{ __('Delete') }}</button>
+                                    <button wire:click="edit({{ $step->id }})" class="btn btn-sm btn-primary">{{ __('Modifier') }}</button>
+                                    <button wire:click="delete({{ $step->id }})" class="btn btn-sm btn-danger">{{ __('Supprimer') }}</button>
                                 </td>
                             </tr>
                         @endforeach
