@@ -80,7 +80,7 @@
                             @if ($new_image_card_path)
                                 <img src="{{ $new_image_card_path->temporaryUrl() }}" class="mt-2 img-thumbnail" style="width: 150px;">
                             @elseif ($existing_image_card_path)
-                                <img src="{{ asset('storage/' . $existing_image_card_path) }}" class="mt-2 img-thumbnail" style="width: 150px;">
+                                <img src="{{ asset($existing_image_card_path) }}" class="mt-2 img-thumbnail" style="width: 150px;">
                             @endif
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             @if ($new_image_main_path)
                                 <img src="{{ $new_image_main_path->temporaryUrl() }}" class="mt-2 img-thumbnail" style="width: 150px;">
                             @elseif ($existing_image_main_path)
-                                <img src="{{ asset('storage/' . $existing_image_main_path) }}" class="mt-2 img-thumbnail" style="width: 150px;">
+                                <img src="{{ asset($existing_image_main_path) }}" class="mt-2 img-thumbnail" style="width: 150px;">
                             @endif
                         </div>
                     </div>
