@@ -54,7 +54,7 @@ class Index extends Component
             'new_image_main_path' => 'nullable|image|max:1024', // 1MB Max
             'is_active' => 'boolean',
         ]);
-
+        
         $data = [
             'subtitle' => $this->subtitle,
             'title' => $this->title,
@@ -65,28 +65,30 @@ class Index extends Component
             'button_two_link' => $this->button_two_link,
             'is_active' => $this->is_active,
         ];
-
+        
         if ($this->new_image_card_path) {
             $imageCardName = 'hero-card.' . $this->new_image_card_path->getClientOriginalExtension();
             $this->new_image_card_path->storeAs('/', $imageCardName, 'public_assets');
-            $data['image_card_path'] = 'assets/images/' . $imageCardName;
+            // Utiliser asset() pour générer l'URL complète
+            $data['image_card_path'] = asset('assets/images/' . $imageCardName);
             $this->existing_image_card_path = $data['image_card_path'];
         }
-
+        
         if ($this->new_image_main_path) {
             $imageMainName = 'hero-main.' . $this->new_image_main_path->getClientOriginalExtension();
             $this->new_image_main_path->storeAs('/', $imageMainName, 'public_assets');
-            $data['image_main_path'] = 'assets/images/' . $imageMainName;
+            // Utiliser asset() pour générer l'URL complète
+            $data['image_main_path'] = asset('assets/images/' . $imageMainName);
             $this->existing_image_main_path = $data['image_main_path'];
         }
-
+        
         if ($this->hero_section_id) {
             HeroSection::find($this->hero_section_id)->update($data);
         } else {
             $heroSection = HeroSection::create($data);
             $this->hero_section_id = $heroSection->id;
         }
-
+        
         session()->flash('message', 'Hero section successfully updated.');
         
         // Reset the file input fields
