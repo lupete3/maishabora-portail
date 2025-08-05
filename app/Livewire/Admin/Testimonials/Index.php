@@ -61,7 +61,9 @@ class Index extends Component
 
         $imagePath = $this->author_image_path;
         if ($this->new_author_image) {
-            $imagePath = 'storage/' . $this->new_author_image->store('testimonials', 'public');
+            $imageName = 'testimonial-' . $this->author_name . '.' . $this->new_author_image->getClientOriginalExtension();
+            $this->new_author_image->storeAs('/', $imageName, 'public_assets');
+            $imagePath = 'assets/images/' . $imageName;
         }
 
         Testimonial::updateOrCreate(['id' => $this->testimonial_id], [

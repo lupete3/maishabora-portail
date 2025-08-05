@@ -45,7 +45,9 @@ class Index extends Component
 
         $imagePath = $this->image_path;
         if ($this->new_image) {
-            $imagePath = 'storage/' . $this->new_image->store('about-section', 'public');
+            $imageName = 'about.' . $this->new_image->getClientOriginalExtension();
+            $this->new_image->storeAs('/', $imageName, 'public_assets');
+            $imagePath = 'assets/images/' . $imageName;
         }
 
         $this->about->update([

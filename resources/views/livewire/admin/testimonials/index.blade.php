@@ -31,7 +31,7 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <img src="{{ asset('storage/' . $testimonial->author_image_path) }}" alt="{{ $testimonial->author_name }}" class="avatar avatar-sm me-2">
+                                        <img src="{{ asset($testimonial->author_image_path) }}" alt="{{ $testimonial->author_name }}" class="avatar avatar-sm me-2">
                                         <div class="d-flex flex-column">
                                             <span class="fw-semibold">{{ $testimonial->author_name }}</span>
                                             <small class="text-muted">{{ $testimonial->author_title }}</small>

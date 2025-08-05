@@ -67,12 +67,16 @@ class Index extends Component
         ];
 
         if ($this->new_image_card_path) {
-            $data['image_card_path'] = 'storage/' . $this->new_image_card_path->store('hero', 'public');
+            $imageCardName = 'hero-card.' . $this->new_image_card_path->getClientOriginalExtension();
+            $this->new_image_card_path->storeAs('/', $imageCardName, 'public_assets');
+            $data['image_card_path'] = 'assets/images/' . $imageCardName;
             $this->existing_image_card_path = $data['image_card_path'];
         }
 
         if ($this->new_image_main_path) {
-            $data['image_main_path'] = 'storage/' . $this->new_image_main_path->store('hero', 'public');
+            $imageMainName = 'hero-main.' . $this->new_image_main_path->getClientOriginalExtension();
+            $this->new_image_main_path->storeAs('/', $imageMainName, 'public_assets');
+            $data['image_main_path'] = 'assets/images/' . $imageMainName;
             $this->existing_image_main_path = $data['image_main_path'];
         }
 

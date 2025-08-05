@@ -48,7 +48,7 @@
                     @elseif ($image_path)
                         <div class="mt-2">
                              <p>Image actuelle :</p>
-                            <img src="{{ asset('storage/' . $image_path) }}" alt="Image actuelle" class="img-thumbnail" width="200">
+                            <img src="{{ asset($image_path) }}" alt="Image actuelle" class="img-thumbnail" width="200">
                         </div>
                     @endif
                 </div>
