@@ -53,7 +53,7 @@ class Index extends Component
             }
 
             // Stocker la nouvelle image
-            $imageName = 'about.' . $this->new_image->getClientOriginalExtension();
+            $imageName = 'about-' . time() . '.' . $this->new_image->getClientOriginalExtension();
             $this->new_image->storeAs('/', $imageName, 'public_assets');
             $imagePath = 'assets/images/' . $imageName;
         }

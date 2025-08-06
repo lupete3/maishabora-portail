@@ -71,7 +71,7 @@ class Index extends Component
             if ($this->existing_image_card_path) {
                 Storage::disk('public_assets')->delete(basename($this->existing_image_card_path));
             }
-            $imageCardName = 'hero-card.' . $this->new_image_card_path->getClientOriginalExtension();
+            $imageCardName = 'hero-card-' . time() . '.' . $this->new_image_card_path->getClientOriginalExtension();
             $this->new_image_card_path->storeAs('/', $imageCardName, 'public_assets');
             $data['image_card_path'] = 'assets/images/' . $imageCardName;
             $this->existing_image_card_path = $data['image_card_path'];
@@ -81,7 +81,7 @@ class Index extends Component
             if ($this->existing_image_main_path) {
                 Storage::disk('public_assets')->delete(basename($this->existing_image_main_path));
             }
-            $imageMainName = 'hero-main.' . $this->new_image_main_path->getClientOriginalExtension();
+            $imageMainName = 'hero-main-' . time() . '.' . $this->new_image_main_path->getClientOriginalExtension();
             $this->new_image_main_path->storeAs('/', $imageMainName, 'public_assets');
             $data['image_main_path'] = 'assets/images/' . $imageMainName;
             $this->existing_image_main_path = $data['image_main_path'];
