@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Hero;
 
 use App\Models\HeroSection;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -67,18 +68,22 @@ class Index extends Component
         ];
         
         if ($this->new_image_card_path) {
+            if ($this->existing_image_card_path) {
+                Storage::disk('public_assets')->delete(basename($this->existing_image_card_path));
+            }
             $imageCardName = 'hero-card.' . $this->new_image_card_path->getClientOriginalExtension();
             $this->new_image_card_path->storeAs('/', $imageCardName, 'public_assets');
-            // Utiliser asset() pour générer l'URL complète
-            $data['image_card_path'] = asset('assets/images/' . $imageCardName);
+            $data['image_card_path'] = 'assets/images/' . $imageCardName;
             $this->existing_image_card_path = $data['image_card_path'];
         }
         
         if ($this->new_image_main_path) {
+            if ($this->existing_image_main_path) {
+                Storage::disk('public_assets')->delete(basename($this->existing_image_main_path));
+            }
             $imageMainName = 'hero-main.' . $this->new_image_main_path->getClientOriginalExtension();
             $this->new_image_main_path->storeAs('/', $imageMainName, 'public_assets');
-            // Utiliser asset() pour générer l'URL complète
-            $data['image_main_path'] = asset('assets/images/' . $imageMainName);
+            $data['image_main_path'] = 'assets/images/' . $imageMainName;
             $this->existing_image_main_path = $data['image_main_path'];
         }
         

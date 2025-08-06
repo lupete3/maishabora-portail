@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\About;
 
 use App\Models\AboutSection;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -45,6 +46,13 @@ class Index extends Component
 
         $imagePath = $this->image_path;
         if ($this->new_image) {
+            // Supprimer l'ancienne image si elle existe
+            if ($this->image_path) {
+                $oldImageFilename = basename($this->image_path);
+                Storage::disk('public_assets')->delete($oldImageFilename);
+            }
+
+            // Stocker la nouvelle image
             $imageName = 'about.' . $this->new_image->getClientOriginalExtension();
             $this->new_image->storeAs('/', $imageName, 'public_assets');
             $imagePath = 'assets/images/' . $imageName;

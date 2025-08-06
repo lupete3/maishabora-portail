@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Testimonials;
 
 use App\Models\Testimonial;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -61,7 +62,12 @@ class Index extends Component
 
         $imagePath = $this->author_image_path;
         if ($this->new_author_image) {
-            $imageName = 'testimonial-' . $this->author_name . '.' . $this->new_author_image->getClientOriginalExtension();
+            // Si on met à jour et qu'une ancienne image existe, on la supprime
+            if ($this->testimonial_id && $this->author_image_path) {
+                Storage::disk('public_assets')->delete(basename($this->author_image_path));
+            }
+            $safeAuthorName = str_replace(' ', '-', strtolower($this->author_name));
+            $imageName = 'testimonial-' . $safeAuthorName . '-' . time() . '.' . $this->new_author_image->getClientOriginalExtension();
             $this->new_author_image->storeAs('/', $imageName, 'public_assets');
             $imagePath = 'assets/images/' . $imageName;
         }
@@ -96,7 +102,11 @@ class Index extends Component
 
     public function delete($id)
     {
-        Testimonial::find($id)->delete();
+        $testimonial = Testimonial::find($id);
+        if ($testimonial && $testimonial->author_image_path) {
+            Storage::disk('public_assets')->delete(basename($testimonial->author_image_path));
+        }
+        $testimonial->delete();
         session()->flash('message', 'Testimonial Deleted Successfully.');
     }
 }
